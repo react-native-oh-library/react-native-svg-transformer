@@ -1,0 +1,7 @@
+{
+  "native": true,
+  "dimensions": false,
+  "replaceAttrValues": {
+    "#000000": "{props.color}"
+  }
+}

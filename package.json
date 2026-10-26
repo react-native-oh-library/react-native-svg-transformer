@@ -1,48 +1,59 @@
 {
   "name": "react-native-svg-transformer",
   "version": "1.5.3",
-  "description": "SVG transformer for react-native",
-  "main": "index.js",
-  "repository": "https://github.com/kristerkari/react-native-svg-transformer",
-  "scripts": {
-    "release": "npx np",
-    "precommit": "lint-staged",
-    "test": "eslint ."
-  },
-  "author": "Krister Kari",
+  "description": "SVG transformer for react-native (OpenHarmony adaptation)",
+  "main": "./index.js",
+  "module": "./index.js",
+  "react-native": "./index.js",
   "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/kristerkari/react-native-svg-transformer",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristerkari/react-native-svg-transformer.git"
+  },
+  "keywords": [
+    "react-native",
+    "harmony",
+    "harmonyos",
+    "svg",
+    "metro",
+    "transformer"
+  ],
   "files": [
     "expo/index.js",
     "react-native/index.js",
     "index.js",
+    "README.md",
     "CHANGELOG.md",
-    "README.md"
+    "LICENSE"
   ],
+  "scripts": {},
+  "peerDependencies": {
+    "react-native": ">=0.59.0",
+    "@react-native-ohos/react-native-svg": ">=15.0.0"
+  },
+  "devDependencies": {
+    "react": "18.2.0",
+    "@types/react": "18.2.79",
+    "react-native": "0.72.5",
+    "jest": "^29.6.3",
+    "@react-native-oh/react-native-harmony-cli": "^0.72.140",
+    "metro": "^0.81.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "harmony": {
+    "alias": "react-native-svg-transformer"
+  },
   "dependencies": {
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@svgr/plugin-svgo": "^8.1.0",
     "path-dirname": "^1.0.2"
-  },
-  "peerDependencies": {
-    "react-native": ">=0.59.0",
-    "react-native-svg": ">=12.0.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint": "^10.8.0",
-    "eslint-plugin-n": "^18.2.2",
-    "eslint-plugin-promise": "^7.3.0",
-    "globals": "^17.8.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^17.2.0",
-    "prettier": "^3.9.6"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }
