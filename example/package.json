@@ -5,7 +5,7 @@
     "react": "18.2.0",
     "react-native": "0.72.5",
     "react-native-svg": "15.0.0",
-    "react-native-svg-transformer": "file:../react-native-svg-transformer-1.5.3.tgz"
+    "react-native-svg-transformer": "file:../react-native-ohos-react-native-svg-transformer-1.5.4-beta.1.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -46,7 +46,7 @@
     "start": "hdc rport tcp:8081 tcp:8081 && react-native start",
     "codegen": "react-native codegen-harmony --rnoh-module-path ./harmony/entry/oh_modules/@rnoh/react-native-openharmony",
     "pack:pkg": "cd ../ && npm pack && cd ./example",
-    "install:pkg": "npm uninstall @react-native-ohos/react-native-document-picker && npm install --legacy-peer-deps @react-native-ohos/react-native-document-picker@file:../react-native-svg-transformer-1.5.3.tgz",
+    "install:pkg": "npm uninstall @react-native-ohos/react-native-document-picker && npm install --legacy-peer-deps @react-native-ohos/react-native-document-picker@file:../react-native-ohos-react-native-svg-transformer-1.5.4-beta.1.tgz",
     "prod": "npm run codegen && react-native bundle-harmony --dev=false --minify=true",
     "fast:pkg": "cd ../ && npm i --legacy-peer-deps && npm pack && cd ./example && npm i && npm run dev"
   },

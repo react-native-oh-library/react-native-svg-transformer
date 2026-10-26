@@ -26,7 +26,7 @@ react-native-svg 渲染。
 
 | 依赖 | 角色 |
 |------|------|
-| `react-native-svg-transformer`（`file:../react-native-svg-transformer-1.5.3.tgz`） | 被验证的鸿蒙适配包（构建期 Metro transformer） |
+| `react-native-svg-transformer`（`file:../react-native-svg-transformer-1.5.4-beta.1.tgz`） | 被验证的鸿蒙适配包（构建期 Metro transformer） |
 | `react-native-svg@15.0.0` | 原始包，提供 JS 层组件（dual install 模式） |
 | `@react-native-ohos/react-native-svg@~15.0.2` | 鸿蒙原生实现（CAPI 版，autolinking 注册） |
 

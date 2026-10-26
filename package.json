@@ -1,19 +1,19 @@
 {
-  "name": "react-native-svg-transformer",
-  "version": "1.5.3",
+  "name": "@react-native-ohos/react-native-svg-transformer",
+  "version": "1.5.4-beta.1",
   "description": "SVG transformer for react-native (OpenHarmony adaptation)",
   "main": "./index.js",
   "module": "./index.js",
   "react-native": "./index.js",
   "license": "MIT",
   "private": false,
-  "homepage": "https://github.com/kristerkari/react-native-svg-transformer",
+  "homepage": "https://github.com/react-native-oh-library/react-native-svg-transformer",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kristerkari/react-native-svg-transformer.git"
+    "url": "git+https://github.com/react-native-oh-library/react-native-svg-transformer.git"
   },
   "keywords": [
     "react-native",

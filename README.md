@@ -1,26 +1,24 @@
-# react-native-svg-transformer for OpenHarmony
+> 文档模板：v0.4.2
 
-本项目基于 [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer) v1.5.3，为 React Native 鸿蒙（OpenHarmony）适配版本。
+<p align="center">
+  <h1 align="center"> <code>react-native-svg-transformer</code> </h1>
+</p>
 
-## 定位说明
+本项目基于 [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer) v1.5.3 开发，为其鸿蒙（OpenHarmony）适配版本。版本所属关系如下：
 
-本包是**纯 JS 的构建期 Metro transformer**：在开发机 Node/Metro 打包进程中将 `.svg` 文件经 SVGR 转换为 React 组件源码，与目标运行平台无关。因此本包：
+| 三方库名称 | 三方库版本（npm地址） | 发布信息 | 支持RN版本 | Autolink | 编译API版本 | 社区基线版本 | 源码地址 |
+| ---------- | -------------------- | -------- | ---------- | -------- | ----------- | ------------ | -------- |
+| react-native-svg-transformer | [~ 1.5.3](https://www.npmjs.com/package/react-native-svg-transformer) | /（本地 tgz 分发，不发布 npm） | 0.72.* /0.77.* / 0.82.*  / 0.84.*  ） | 否（无需） | /（纯 JS 包） | 1.5.3 | [master](https://github.com/react-native-oh-library/react-native-svg-transformer) |
 
-- **不含任何鸿蒙原生代码**（无 HAR / TurboModule / Fabric 组件），无需 autolinking 注册；
-- 源码与上游完全一致（`index.js` / `react-native/index.js` / `expo/index.js` 三入口，零修改）；
-- 唯一差异在 `package.json`：运行时渲染依赖由 `react-native-svg` 替换为鸿蒙适配版 `@react-native-ohos/react-native-svg`。
+## 简介
 
-`.svg` 文件转换出的组件在运行时由鸿蒙版 react-native-svg 渲染。
+react-native-svg-transformer 用于在 React Native 中将 `.svg` 文件经 SVGR 转换为 React 组件。本包是**纯 JS 的构建期 Metro transformer**：在开发机 Node/Metro 打包进程中完成转换，与目标运行平台无关。
 
-## 版本对应关系
+## 下载安装
 
-| 鸿蒙适配包版本 | 原始库版本 | 支持 RN 版本 | Autolink | 说明 |
-| -------------- | ---------- | ------------ | -------- | ---- |
-| 1.5.3 | 1.5.3 | 0.72+（RNOH 已验证 0.72 线） | 否（无需） | 构建期工具，平台无关 |
+进入到工程目录并输入以下命令（本包为本地私有包，不发布 npm，通过 tgz 安装）：
 
-## 安装
-
-本包为本地私有包（不发布 npm），通过 tgz 安装：
+**npm**
 
 ```bash
 npm install react-native-svg-transformer@file:../react-native-svg-transformer-1.5.3.tgz
@@ -28,7 +26,47 @@ npm install react-native-svg-transformer@file:../react-native-svg-transformer-1.
 npm install react-native-svg@15.0.0 @react-native-ohos/react-native-svg@~15.0.2
 ```
 
-## 使用（metro.config.js 配置三要素）
+## 依赖关系说明
+
+本包自身不含鸿蒙原生代码；但 `.svg` 转换出的组件在运行时由 `@react-native-ohos/react-native-svg` 渲染，业务工程需根据 RN 框架版本引入对应鸿蒙化依赖库，版本对应关系如下：
+
+| RN 框架版本 | 鸿蒙化依赖库 | 支持版本范围 | 
+| --- | --- | --- |
+| 0.72/0.77/0.82/0.84 | [@react-native-ohos/react-native-svg](https://gitcode.com/CPF-RN/usage-docs/blob/master/zh-cn/react-native-svg.md) | >=15.0.2 |
+
+鸿蒙适配包基于上游 `react-native-svg` v15.0.0（满足上游 peer `>=12.0.0`），采用 dual install 用法：业务代码照常 `import ... from "react-native-svg"`，打包时由 `createHarmonyMetroConfig` 自动重定向到鸿蒙适配包。
+
+> [!TIP] 请确保引入的三方库版本与应用工程的 RN 框架版本匹配，不匹配的版本可能导致编译或运行异常。更多版本信息可通过 [RNOH 三方库总览](https://gitcode.com/CPF-RN/usage-docs/blob/master/zh-cn/README.md#rnoh-%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E8%A7%88)表格获取。
+
+## 约束与限制
+
+- 鸿蒙侧 SVG 运行时渲染由 `@react-native-ohos/react-native-svg`（基于上游 v15.0.0，满足上游 peer `>=12.0.0`）提供；
+- 本包全部核心功能（SVG 转 React 组件、非 SVG 透传、SVGR 默认配置、`.svgrrc` 合并、上游 transformer 自动探测、双子入口、transformer 工厂）均为构建期能力，在鸿蒙全量可用。
+
+### 兼容性
+
+本文档内容基于以下版本验证通过：
+1. RNOH：0.72.20；SDK：HarmonyOS NEXT Developer Beta1；IDE：DevEco Studio 5.0.3.200；ROM：3.0.0.18；
+2. RNOH：0.77.18；SDK：HarmonyOS 6.0.0 Release SDK；IDE：DevEco Studio 6.0.0.868；ROM：6.0.0.112；
+3. RNOH：0.82.1；SDK：HarmonyOS 6.0.1 Release SDK；IDE：DevEco Studio 6.0.1 Release；ROM：6.0.0.120 SP7；
+4. RNOH：0.84.1；SDK：HarmonyOS 6.0.1 Release SDK；IDE：DevEco Studio 6.0.1 Release；ROM：6.0.0.120 SP7；
+
+### 权限要求
+
+无特殊权限要求（纯构建期工具，不涉及运行时权限）。
+
+## 使用示例
+
+安装并完成 `metro.config.js` 配置（见「使用说明」）后，在业务代码中直接 import SVG 文件作为组件：
+
+```tsx
+import Logo from "./logo.svg";
+
+export function App() {
+  return <Logo width={120} height={120} />;
+}
+```
+## 使用说明
 
 在 RNOH 工程的 `metro.config.js` 中，于 `createHarmonyMetroConfig` 基础上叠加 SVG transformer 配置：
 
@@ -56,20 +94,11 @@ module.exports = mergeConfig(
 );
 ```
 
-
-随后在业务代码中直接 import SVG 文件作为组件：
-
-```tsx
-import Logo from "./logo.svg";
-
-export function App() {
-  return <Logo width={120} height={120} />;
-}
-```
-
 也可在 SVG 文件所在目录放置 `.svgrrc` 自定义 SVGR 配置（与上游用法一致，向上逐级查找合并）。
 
-## 入口说明
+## 接口说明
+
+本包无运行时组件与 API，对外接口为以下三个 npm 入口：
 
 | 入口 | 说明 |
 |------|------|
@@ -77,25 +106,36 @@ export function App() {
 | `react-native-svg-transformer/react-native` | 固定使用 RN 上游 transformer（**鸿蒙工程推荐**，`babelTransformerPath` 指向此入口） |
 | `react-native-svg-transformer/expo` | 固定使用 Expo 上游 transformer（鸿蒙工程不使用） |
 
-在 RNOH（RN 0.72 线）中，`react-native` 子入口会先尝试 `@react-native/metro-babel-transformer`（RN ≥ 0.73 才有），失败后回退 `metro-react-native-babel-transformer`（RN 0.72 模板 devDependencies 自带，可解析），链路已验证可用。
+在 RNOH中，`react-native` 子入口会先尝试 `@react-native/metro-babel-transformer`（RN ≥ 0.73 才有），失败后回退 `metro-react-native-babel-transformer`（RN 模板 devDependencies 自带，可解析），链路已验证可用。
 
-## 约束与限制
+## 遗留问题
 
-- 鸿蒙侧 SVG 运行时渲染由 `@react-native-ohos/react-native-svg`（基于上游 v15.0.0，满足上游 peer `>=12.0.0`）提供；
-- 本包全部核心功能（SVG 转 React 组件、非 SVG 透传、SVGR 默认配置、`.svgrrc` 合并、上游 transformer 自动探测、双子入口、transformer 工厂）均为构建期能力，在鸿蒙全量可用；
-- 上游 `files` 字段外的开发配置（eslint 等）不随包发布。
+无
 
-## 快速验证（运行 Example）
+## 其他
 
-完整步骤、测试场景与常见问题见 [example/README.md](./example/README.md)。摘要：
 
-```bash
-# 仓库根目录执行（自动 pack tgz → 安装依赖 → bundle → assembleHap）
-python .claude/skills/tool-ohos-plugin-repo/tool/rn.py build hap --full --plugin-root .
-```
+## 目录结构
 
-Example 覆盖 4 个场景：默认配置导入（原始尺寸 + viewBox 保留）、props 覆盖尺寸、复杂多元素 SVG、`.svgrrc` 自定义配置（`dimensions:false` + `replaceAttrValues` 颜色参数化），安装 HAP 后即可目视验证 `.svg` 文件渲染。
+````
+/react-native-svg-transformer  # 项目根目录
+├── index.js               # 默认入口（Expo transformer 优先，失败回退 RN）
+├── react-native/
+│   └── index.js           # RN transformer 子入口（鸿蒙工程推荐）
+├── expo/
+│   └── index.js           # Expo transformer 子入口
+├── example/               # 示例工程（RNOH 0.72 鸿蒙工程，4 个测试场景）
+├── images/                # 文档图片
+├── package.json           # npm 包定义（与上游的唯一差异所在）
+├── CHANGELOG.md           # 变更记录
+├── LICENSE                # MIT 协议
+└── README.md              # 中文安装使用方法
+````
+
+## 贡献代码
+
+使用过程中发现任何问题都可以提交 [Issue](https://github.com/react-native-oh-library/react-native-svg-transformer)，当然，也非常欢迎提交 [PR](https://github.com/react-native-oh-library/react-native-svg-transformer)。
 
 ## 开源协议
 
-MIT，基于[上游 LICENSE](https://github.com/kristerkari/react-native-svg-transformer/blob/master/LICENSE)，详见 [LICENSE](./LICENSE)。
+本项目基于 [MIT License](https://github.com/kristerkari/react-native-svg-transformer/blob/master/LICENSE) 开源，协议全文见 [LICENSE](./LICENSE)，请自由地享受和参与开源。
