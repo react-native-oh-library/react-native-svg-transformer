@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "react-native-svg-transformer",
+        "License": "MIT",
+        "License File": "https://github.com/react-native-oh-library/react-native-svg-transformer/blob/master/LICENSE",
+        "Version Number": "1.5.3",
+        "Owner" : "panjinling@huawei.com",
+        "Upstream URL": "https://github.com/kristerkari/react-native-svg-transformer",
+        "Description": "react-native-svg-transformer"
+    }
+]

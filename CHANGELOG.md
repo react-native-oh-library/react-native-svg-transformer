@@ -1,3 +1,8 @@
+## [1.5.4-beta.1] - 2026-10
+
+### Changed
+- add harmony support
+
 ## 1.5.3
 
 - Fixed: pass file path to SVGR (#470).
