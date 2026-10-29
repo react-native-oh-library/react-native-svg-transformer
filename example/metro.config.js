@@ -17,14 +17,14 @@ const baseConfig = mergeConfig(
 
 /**
  * react-native-svg-transformer 集成三要素：
- * 1. transformer.babelTransformerPath 指向 react-native-svg-transformer/react-native 子入口
+ * 1. transformer.babelTransformerPath 指向 @react-native-ohos/react-native-svg-transformer/react-native 子入口
  * 2. resolver.sourceExts 追加 'svg'（.svg 作为源码模块交给 transformer 转换）
  * 3. resolver.assetExts 移除 'svg'（不再按静态资源打包）
  */
 const config = {
   transformer: {
     babelTransformerPath: require.resolve(
-      'react-native-svg-transformer/react-native',
+      '@react-native-ohos/react-native-svg-transformer/react-native',
     ),
     getTransformOptions: async () => ({
       transform: {

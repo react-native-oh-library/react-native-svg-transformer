@@ -48,7 +48,7 @@ function Section({testID, title, description, children}: SectionProps) {
   );
 }
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const [colorIndex, setColorIndex] = useState(0);
   const badgeColor = BADGE_COLORS[colorIndex];
 

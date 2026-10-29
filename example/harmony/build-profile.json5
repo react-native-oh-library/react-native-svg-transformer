@@ -1,20 +1,20 @@
 {
   "app": {
     "signingConfigs": [
-    {
-      "name": "default",
-      "type": "HarmonyOS",
-      "material": {
-        "certpath": "C:/Users/hoperun/.ohos/config/default_harmony_Of7XErn8vuu9_5ScbUnzrySVZV6DUdV58-euOqdivnE=.cer",
-        "profile": "C:/Users/hoperun/.ohos/config/default_harmony_Of7XErn8vuu9_5ScbUnzrySVZV6DUdV58-euOqdivnE=.p7b",
-        "storeFile": "C:/Users/hoperun/.ohos/config/default_harmony_Of7XErn8vuu9_5ScbUnzrySVZV6DUdV58-euOqdivnE=.p12",
-        "keyAlias": "debugKey",
-        "keyPassword": "0000001BA1B1D9075B31E76CD730113524464601BE456273CC9DCBE5A5E79BDC0AC5E291871C95DDA2A46E",
-        "storePassword": "0000001BCD3EA0B2CDE51D23DD348F86884B98685DB541D0A4174846A58A4910D64F508B90E3C0B221950E",
-        "signAlg": "SHA256withECDSA"
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\hoperun\\.ohos\\config\\default_harmony_3QVymkXT_x8UtD7MSHnmCdf0ta92ZjagJPIQfvNB0iA=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A59CDCBD862D86EE9E54577B796FDE097E04FA39DD8C5007B857DC00368CE1369E68A2FD7AA36",
+          "profile": "C:\\Users\\hoperun\\.ohos\\config\\default_harmony_3QVymkXT_x8UtD7MSHnmCdf0ta92ZjagJPIQfvNB0iA=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\hoperun\\.ohos\\config\\default_harmony_3QVymkXT_x8UtD7MSHnmCdf0ta92ZjagJPIQfvNB0iA=.p12",
+          "storePassword": "0000001AF96419542749D51DDBF5391414E2BA286A17A8C6FCCF302C20B03F4D1F02BFE6A46EE2F614DE"
+        }
       }
-    }
-  ],
+    ],
     "products": [
       {
         "name": "default",
