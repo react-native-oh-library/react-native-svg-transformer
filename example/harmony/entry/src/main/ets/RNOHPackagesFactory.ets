@@ -3,10 +3,10 @@
  * DO NOT modify it manually, your changes WILL be overwritten.
  */
 import type { RNPackageContext, RNOHPackage } from '@rnoh/react-native-openharmony';
-import SVGPackage from '@react-native-ohos/react-native-svg';
+import SvgPackage from '@react-native-ohos/react-native-svg';
 
 export function createRNOHPackages(ctx: RNPackageContext): RNOHPackage[] {
   return [
-    new SVGPackage(ctx),
+    new SvgPackage(ctx),
   ];
 }

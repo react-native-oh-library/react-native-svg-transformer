@@ -34,7 +34,7 @@
   "scripts": {},
   "peerDependencies": {
     "react-native": ">=0.59.0",
-    "@react-native-ohos/react-native-svg": ">=15.0.0"
+    "@react-native-ohos/react-native-svg": "*"
   },
   "devDependencies": {
     "react": "18.2.0",
