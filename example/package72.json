@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@rnoh/testerino": "file:./rnoh_package/testerino/rnoh-testerino-0.0.12.tgz",
-    "@react-native-oh/react-native-harmony": "0.72.139",
+    "@react-native-oh/react-native-harmony": "0.72.145",
     "react": "18.2.0",
     "react-native": "0.72.5",
     "react-native-svg": "15.0.0",
@@ -9,6 +9,7 @@
     "@react-native-ohos/react-native-svg-transformer": "file:../react-native-ohos-react-native-svg-transformer-1.5.4-beta.1.tgz"
   },
   "devDependencies": {
+    "@react-native-oh/react-native-harmony-cli": "0.72.145",
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
@@ -39,6 +40,7 @@
   },
   "scripts": {
     "dev": "npm run tsc && react-native bundle-harmony --dev false",
+    "postinstall": "node ./scripts/create-build-profile && node ./scripts/sync-hvigor-plugin",
     "lint": "eslint .",
     "test": "jest",
     "tsc": "tsc --noEmit",
